@@ -11,7 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/dvontrec/hello-spotify.git"
   },
-  "keywords": ["Spotify", "music", "dvontre", "coleman"],
+  "keywords": [
+    "Spotify",
+    "music",
+    "dvontre",
+    "coleman"
+  ],
   "author": "Dvontre A Coleman",
   "license": "ISC",
   "bugs": {
@@ -20,6 +25,8 @@
   "homepage": "https://github.com/dvontrec/hello-spotify#readme",
   "dependencies": {
     "dotenv": "^6.0.0",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "passport": "^0.4.0",
+    "passport-spotify": "^1.0.1"
   }
 }

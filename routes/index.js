@@ -5,4 +5,8 @@ router.get('/', (req, res) => {
 	res.send('route connected');
 });
 
+router.get('/spot', (req, res) => {
+	res.send('BINGO!!!!');
+});
+
 module.exports = router;
