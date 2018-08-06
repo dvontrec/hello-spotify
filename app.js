@@ -1,10 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-	res.send('up and running');
-});
+app.use('/', require('./routes/index'));
 
-app.listen(3000, () => {
-	console.log('Your app is running');
+app.listen(port, () => {
+	console.log('Your app is running on port ', port);
 });
