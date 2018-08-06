@@ -1,0 +1,25 @@
+{
+  "name": "hello-spotify",
+  "version": "1.0.0",
+  "description": "First attempt at creating a spotify web app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvontrec/hello-spotify.git"
+  },
+  "keywords": ["Spotify", "music", "dvontre", "coleman"],
+  "author": "Dvontre A Coleman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvontrec/hello-spotify/issues"
+  },
+  "homepage": "https://github.com/dvontrec/hello-spotify#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3"
+  }
+}
