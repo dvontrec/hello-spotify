@@ -44,7 +44,7 @@ passport.use(
 				return done(null, existingUser);
 			}
 			console.log('new user');
-			const user = await new User({ spotifyId: profile.id }).save;
+			const user = await new User({ spotifyId: profile.id }).save();
 			done(null, user);
 		}
 	)
@@ -78,7 +78,7 @@ app.get(
 	(req, res) => {
 		console.log('help');
 		// Successful authentication, redirect home.
-		res.redirect('/');
+		res.redirect('/current_user');
 	}
 );
 

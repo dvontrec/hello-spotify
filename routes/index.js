@@ -13,4 +13,8 @@ router.get('/wrong', (req, res) => {
 	res.send('Cannot login bro');
 });
 
+router.get('/current_user', (req, res) => {
+	res.send(req.user);
+});
+
 module.exports = router;
