@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-	spotifyId: String,
-	name: String
+	spotifyId: String
 });
 
 module.exports = mongoose.model('User', userSchema);

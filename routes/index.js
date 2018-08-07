@@ -10,7 +10,7 @@ router.get('/spot', (req, res) => {
 });
 
 router.get('/wrong', (req, res) => {
-	res.send('Cannot login');
+	res.send('Cannot login bro');
 });
 
 module.exports = router;

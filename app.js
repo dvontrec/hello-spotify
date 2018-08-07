@@ -34,14 +34,16 @@ passport.use(
 		{
 			clientID: process.env.CLIENT_ID,
 			clientSecret: process.env.CLIENT_SECRET,
-			callbackURL: 'http://localhost:3005/auth/spotify/callback'
+			callbackURL: '/auth/spotify/callback'
 		},
 		async (accessToken, refreshToken, expires_in, profile, done) => {
-			console.log(profile);
+			console.log(accessToken);
 			const existingUser = await User.findOne({ spotifyId: profile.id });
 			if (existingUser) {
+				console.log('Returning user');
 				return done(null, existingUser);
 			}
+			console.log('new user');
 			const user = await new User({ spotifyId: profile.id }).save;
 			done(null, user);
 		}
@@ -59,14 +61,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./routes/index'));
-app.get('/auth/spotify', passport.authenticate('spotify', {}), (req, res) => {
-	// The request will be redirected to spotify for authentication, so this
-	// function will not be called.
-});
+app.get(
+	'/auth/spotify',
+	passport.authenticate('spotify', {
+		scope: 'user-read-private user-read-email',
+		showDialog: true
+	}),
+	(req, res) => {
+		// The request will be redirected to spotify for authentication, so this
+		// function will not be called.
+	}
+);
 app.get(
 	'/auth/spotify/callback',
 	passport.authenticate('spotify', { failureRedirect: '/wrong' }),
 	(req, res) => {
+		console.log('help');
 		// Successful authentication, redirect home.
 		res.redirect('/');
 	}
