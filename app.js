@@ -7,6 +7,7 @@ const port = process.env.PORT;
 const app = express();
 
 require('./services/passport');
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
 
@@ -43,7 +44,7 @@ app.get(
 	(req, res) => {
 		console.log('help');
 		// Successful authentication, redirect home.
-		res.redirect('/current_user');
+		res.redirect('/');
 	}
 );
 
