@@ -6,7 +6,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/spot', (req, res) => {
-	res.send('BINGO!!!!');
+	const path = '../views/text.html';
+	res.sendFile(path);
 });
 
 router.get('/wrong', (req, res) => {
