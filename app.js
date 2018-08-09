@@ -13,7 +13,8 @@ app.use(express.static(__dirname + '/views'));
 
 app.use(
 	cookieSession({
-		maxAge: 30 * 24 * 60 * 60 * 1000, //saves the cookie for 30 days 24 hours in a day 60 minutes in an hour 60 seconds in a minute 1000 milliseconds in a second
+		name: 'Spotify User',
+		maxAge: 60 * 60 * 1000, //saves the cookie for 60 minutes in an hour 60 seconds in a minute 1000 milliseconds in a second
 		// encrypts the cookie
 		keys: [process.env.COOKIE_KEY_1]
 	})

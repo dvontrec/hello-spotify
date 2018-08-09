@@ -34,12 +34,10 @@ passport.use(
 			callbackURL: '/auth/spotify/callback'
 		},
 		async (accessToken, refreshToken, expires_in, profile, done) => {
-			const existingUser = await User.findOne({ spotifyId: profile.id });
-			if (existingUser) {
-				console.log('Returning user');
-				return done(null, existingUser);
-			}
-			console.log('new user');
+			// Finds the existing user and deletes it
+			const existingUser = await User.findOneAndDelete({
+				spotifyId: profile.id
+			});
 			const user = await new User({
 				name: profile.displayName,
 				profilePic: profile.photos[0],

@@ -4,6 +4,9 @@ var spotifyApi = new SpotifyWebApi();
 const router = express.Router();
 
 router.get('/', (req, res) => {
+	if (!req.user) {
+		return res.redirect('/auth/spotify');
+	}
 	res.render('spotify-test');
 });
 
