@@ -23,31 +23,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./routes/index'));
-app.get(
-	'/auth/spotify',
-	passport.authenticate('spotify', {
-		scope: [
-			'streaming',
-			'user-read-birthdate',
-			'user-read-email',
-			'user-read-private'
-		],
-		showDialog: true
-	}),
-	(req, res) => {
-		// The request will be redirected to spotify for authentication, so this
-		// function will not be called.
-	}
-);
-app.get(
-	'/auth/spotify/callback',
-	passport.authenticate('spotify', { failureRedirect: '/wrong' }),
-	(req, res) => {
-		console.log('help');
-		// Successful authentication, redirect home.
-		res.redirect('/');
-	}
-);
 
 app.listen(port, () => {
 	console.log('Your app is running on port ', port);
